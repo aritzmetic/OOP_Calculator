@@ -31,28 +31,28 @@ class Calculator:
 
             # use try-except method for exception handling
             try:
-                if self.operations.is_valid_operation(user_operation):
-                    number_1 = self.input.get_user_number("First")
-                    number_2 = self.input.get_user_number("Second")
-
-                    result = self.operations.calculate_result(user_operation, number_1, number_2)
-
-                    # display the processing message
-                    self.display.display_processing_message()
-                    # display the result
-                    self.display.display_result(result)
-
-                else:
+                while not self.operations.is_valid_operation(user_operation):
                     # display invalid operations
                     self.display.display_invalid_operation_message()
-        
+                    user_operation = self.input.get_operation()
+
+                number_1 = self.input.get_user_number("First")
+                number_2 = self.input.get_user_number("Second")
+
+                result = self.operations.calculate_result(user_operation, number_1, number_2)
+
+                # display the processing message
+                self.display.display_processing_message()
+                # display the result
+                self.display.display_result(result)
+
                 question = self.input.get_repeat_question()
                 if not self.input.is_repeat_question(question):
                     break
             
             # add the exception handling
             except ValueError:
-                print("\033[30mInvalid operation. Please try again.\033[0m")
+                print("\033[30mInvalid input. Please try again.\033[0m")
             except ZeroDivisionError:
                 print("\033[30mInvalid Divisor. Zero is not applicable as a divisor!\033[0m")
             except TypeError:
