@@ -1,6 +1,6 @@
 # Delera, Aritz B.
 
-# Import the calculator_input
+# Import the calculator_input, calculator_operations
 from calculator_input import CalculatorInput
 
 # cretae a class calculator
@@ -9,7 +9,10 @@ class Calculator:
     def __init__(self):
         # initialize the calculator_input
         self.input = CalculatorInput()
-         
+    
+    # use while loop
+        # use try-except method for exception handling
+
     # test if numbers are able to output
     def test(self):
      number_1 = self.input.get_user_number("first")
