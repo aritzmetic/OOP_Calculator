@@ -1,7 +1,7 @@
 # Delera, Aritz B.
 
-# Pseudocode
-# Create a seperate file for class input
-# Create a separate file for class Operations
-# Create a separate file for class display
-# Create a separate file for class calculator
+# Import the calculator_input
+# cretae a class calculator
+# use a Non-Parametrized Constructor
+# initialize the calculator_input
+# test if numbers are able to output
