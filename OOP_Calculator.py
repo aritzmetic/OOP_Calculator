@@ -2,6 +2,7 @@
 
 # Import the calculator_input, calculator_operations
 from calculator_input import CalculatorInput
+from calculator_operations import CalculatorOperations
 
 # cretae a class calculator
 class Calculator:
@@ -9,18 +10,30 @@ class Calculator:
     def __init__(self):
         # initialize the calculator_input
         self.input = CalculatorInput()
+        self.operations = CalculatorOperations()
     
-    # use while loop
-        # use try-except method for exception handling
-
     # test if numbers are able to output
     def test(self):
-     number_1 = self.input.get_user_number("first")
-     number_2 = self.input.get_user_number("second")
+        # use while loop
+        while True:
+            user_operation = self.input.get_operation()
 
-     result = number_1 + number_2
-     return result
+            # use try-except method for exception handling
+            try:
+                if self.operations.is_valid_operation(user_operation):
+                    number_1 = self.input.get_user_number("First")
+                    number_2 = self.input.get_user_number("Second")
 
+                    result = self.operations.calculate_result(user_operation, number_1, number_2)
+                    print(result)
+
+                else:
+                    print()
+        
+                question = self.input.get_repeat_question()
+                if not self.input.is_repeat_question(question):
+                    break
+            except ValueError:
+                print("Invalid operation. Please try again.")
 calculator = Calculator()
-result = calculator.test()
-print("Result:", result)
+calculator.test()
