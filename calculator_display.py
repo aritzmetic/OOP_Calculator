@@ -29,6 +29,12 @@ class CalculatorDisplay:
         print(" Welcome to AritzMetic's Calculator! ".center(60, "+"))
         print("=" * 61)
 
+        name = input("\033[30mHi Smart Pipol! What is your name?: \033[0m")
+        print()
+        print("\033[40mHi", name, "! AritzMetic is here to help you in solving your Maths!\033[0m")
+        time.sleep(2)
+
+
     # define the display operations
     def display_operations(self):
         print()

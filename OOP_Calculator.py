@@ -64,6 +64,3 @@ class Calculator:
                 break
         # display the outro
         self.display.display_goodbye_message()
-
-calculator = Calculator()
-calculator.test()
