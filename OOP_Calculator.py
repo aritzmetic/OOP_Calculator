@@ -3,6 +3,7 @@
 # Import the calculator_input, calculator_operations, and calculator_display
 from calculator_input import CalculatorInput
 from calculator_operations import CalculatorOperations
+from calculator_display import CalculatorDisplay
 
 # cretae a class calculator
 class Calculator:
@@ -11,15 +12,20 @@ class Calculator:
         # initialize the calculator_input, calculator_operations, and calculator_display
         self.input = CalculatorInput()
         self.operations = CalculatorOperations()
+        self.display = CalculatorDisplay()
     
     # display the introduction
+    def display_intro(self):
+        self.display.display_opening()
 
     # test if numbers are able to output
     def test(self):
         # use while loop
         while True:
             # display the operations
+            self.display.display_operations()
             # display the random trivia
+            self.display.display_trivia()
 
             user_operation = self.input.get_operation()
 
@@ -32,13 +38,13 @@ class Calculator:
                     result = self.operations.calculate_result(user_operation, number_1, number_2)
 
                     # display the processing message
+                    self.display.display_processing_message()
                     # display the result
-
-                    print(result)
+                    self.display.display_result(result)
 
                 else:
                     # display invalid operations
-                    print()
+                    self.display.display_invalid_operation_message()
         
                 question = self.input.get_repeat_question()
                 if not self.input.is_repeat_question(question):
@@ -46,8 +52,14 @@ class Calculator:
             
             # add the exception handling
             except ValueError:
-                print("Invalid operation. Please try again.")
+                print("\033[30mInvalid operation. Please try again.\033[0m")
+            except ZeroDivisionError:
+                print("\033[30mInvalid Divisor. Zero is not applicable as a divisor!\033[0m")
+            except TypeError:
+                print("\033[30mInvalid data. Please try again.\033[0m")
         
         # display the outro
+        self.display.display_goodbye_message()
+
 calculator = Calculator()
 calculator.test()
