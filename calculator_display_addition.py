@@ -8,7 +8,7 @@ import time
 # Create a new class
 
 class CalculatorDisplayAddition(CalculatorDisplay):
-    #override the display opening
+    # override the display opening
     def display_opening(self):
         f = Figlet(font='isometric2')
         print(colored(f.renderText('OOP'), 'blue'))
@@ -20,7 +20,7 @@ class CalculatorDisplayAddition(CalculatorDisplay):
         print("\033[40mHi", name, "! AritzMetic is here to help you in solving your Maths!\033[0m")
         time.sleep(2)
     
-    #override the goodby message
+    # override the goodby message
     def display_goodbye_message(self):
         print("Thank you for using AritzMetic's Calculator!")
         print(random.choice(self.goodbye_quotes))
