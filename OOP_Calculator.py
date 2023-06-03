@@ -3,7 +3,7 @@
 # Import the calculator_input, calculator_operations, and calculator_display
 from calculator_input import CalculatorInput
 from calculator_operations import CalculatorOperations
-from calculator_display import CalculatorDisplay
+from calculator_display_addition import CalculatorDisplayAddition
 
 # cretae a class calculator
 class Calculator:
@@ -12,7 +12,7 @@ class Calculator:
         # initialize the calculator_input, calculator_operations, and calculator_display
         self.input = CalculatorInput()
         self.operations = CalculatorOperations()
-        self.display = CalculatorDisplay()
+        self.display = CalculatorDisplayAddition()
     
     # display the introduction
     def display_intro(self):
