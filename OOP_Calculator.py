@@ -44,7 +44,7 @@ class Calculator:
                     except ValueError:
                         print("\033[30mInvalid input. Please try again.\033[0m")
 
-                result = self.operations.calculate_result(user_operation, number_1, number_2)
+                result = self.calculate_result(user_operation, number_1, number_2)
 
                 # display the processing message
                 self.display.display_processing_message()

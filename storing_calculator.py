@@ -1,4 +1,5 @@
 from OOP_Calculator import Calculator
+from calculator_operations import CalculatorOperations
 
 # Create a class for storing the result
 class StoringCalculator(Calculator):
@@ -9,7 +10,7 @@ class StoringCalculator(Calculator):
 
     # override the calculate_result method to store the history
     def calculate_result(self, operator, number_1, number_2):
-        result = super().calculate_result(operator, number_1, number_2)
+        result = self.operations.calculate_result(operator, number_1, number_2)
         equation = f"{number_1} {operator} {number_2} = {result}"
         self.history.append(equation)
         return result
